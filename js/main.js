@@ -73,18 +73,21 @@ function isUserWinner(userNumber, opponentNumber, userChoice) {
   return evenWinCondition || oddWinCondition;
 }
 
-// # Chiedo pari o dispari all'utente
+// # Preparo la configurazione di gioco
 const allowedChoices = ['pari', 'dispari'];
-const userChoice = askString(allowedChoices, 'Inserisci "pari" o "dispari"');
+const minNumber = 1;
+const maxNumber = 5;
+
+// # Chiedo pari o dispari all'utente
+const messageChoice = 'Inserisci "pari" o "dispari"';
+const userChoice = askString(allowedChoices, messageChoice);
 
 // # Chiedo un numero all'utente
-const minUserNumber = 1;
-const maxUserNumber = 5;
-const messageUserNumber = `Dammi un numero da ${minUserNumber} a ${maxUserNumber}`;
-const userNumber = askNumber(minUserNumber, maxUserNumber, messageUserNumber);
+const messageNumber = `Dammi un numero da ${minNumber} a ${maxNumber}`;
+const userNumber = askNumber(minNumber, maxNumber, messageNumber);
 
 // # Genero un numero per il PC
-const pcNumber = generateNumber(1, 5);
+const pcNumber = generateNumber(minNumber, maxNumber);
 
 // # Stabilisco il vincitore
 const userWon = isUserWinner(userNumber, pcNumber, userChoice);
