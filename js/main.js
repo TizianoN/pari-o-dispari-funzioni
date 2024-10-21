@@ -74,12 +74,12 @@ function isUserWinner(userNumber, opponentNumber, userChoice) {
 }
 
 // # Preparo la configurazione di gioco
-const allowedChoices = ['pari', 'dispari'];
+const allowedChoices = ['Pari', 'Dispari'];
 const minNumber = 1;
-const maxNumber = 5;
+const maxNumber = 10;
 
 // # Chiedo pari o dispari all'utente
-const messageChoice = 'Inserisci "pari" o "dispari"';
+const messageChoice = 'Inserisci "' + allowedChoices.join(' o ') + '';
 const userChoice = askString(allowedChoices, messageChoice);
 
 // # Chiedo un numero all'utente
